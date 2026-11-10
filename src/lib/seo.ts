@@ -3,12 +3,12 @@ import { SITE_URL, site } from "./site";
 import { faqItems } from "./faq";
 
 const DESCRIPTION =
-  "Fotógrafo de casamento em São Carlos/SP com mais de 15 anos de experiência. Cobertura de casamentos, pré-wedding, 15 anos, formatura e eventos corporativos em todo o Brasil.";
+  "Fotógrafo em Manoel Ribas/PR com olhar artístico para momentos únicos. Cobertura de eventos, ensaios fotográficos e retratos na região do Paraná.";
 const SHORT_DESCRIPTION =
-  "Fotógrafo de casamento em São Carlos/SP com mais de 15 anos de experiência. Transformo momentos em memórias eternas.";
+  "Fotógrafo em Manoel Ribas/PR. Transformo momentos em memórias eternas através da fotografia.";
 const TITLE = "Rodrigo Alflen Fotografia | Casamentos, Ensaios e Eventos";
 const OG_IMAGE =
-  "https://photos.smugmug.com/photos/i-dSstFbR/3/LMjZfZnKBGT4ksnZrHJD9VSNRhP6fZF65sfLtFZW7/X3/i-dSstFbR-X3.jpg";
+  "https://live.staticflickr.com/65535/55645653673_8297c4e604_b.jpg";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
