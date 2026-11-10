@@ -2,6 +2,7 @@ import { services } from "@/lib/services";
 import Placeholder from "./ui/Placeholder";
 import { ArrowRightIcon } from "./ui/Icons";
 import SectionHeading from "./ui/SectionHeading";
+import ServicesPicker from "./ServicesPicker";
 
 export default function Services() {
   return (
@@ -17,6 +18,7 @@ export default function Services() {
           description="Uma experiência personalizada, adaptada a cada cliente, para criar registros únicos e autênticos."
         />
 
+        {/* Desktop: lista + foto em arco */}
         <div className="services__grid">
           <ol className="services__list">
             {services.map((service) => (
@@ -37,6 +39,9 @@ export default function Services() {
             <Placeholder alt="" ratio="portrait" tone={2} />
           </div>
         </div>
+
+        {/* Celular/tablet: abas + cartão (o CSS alterna entre os dois) */}
+        <ServicesPicker services={services} />
       </div>
     </section>
   );

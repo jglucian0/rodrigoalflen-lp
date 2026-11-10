@@ -13,11 +13,13 @@ import Portfolio from "@/components/Portfolio";
 import Process from "@/components/Process";
 import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
+import SmoothAnchors from "@/components/SmoothAnchors";
 
 export default function HomePage() {
   return (
     <>
       <Header />
+      <SmoothAnchors />
       <main id="conteudo">
         <Hero />
         <AwardsMarquee />

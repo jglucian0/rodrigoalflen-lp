@@ -10,9 +10,14 @@ const INTERVAL_MS = 6000;
 interface HeroSlideshowProps {
   images: string[];
   alt: string;
+  sizes?: string;
 }
 
-export default function HeroSlideshow({ images, alt }: HeroSlideshowProps) {
+export default function HeroSlideshow({
+  images,
+  alt,
+  sizes = "(max-width: 960px) 80vw, 371px",
+}: HeroSlideshowProps) {
   const [index, setIndex] = useState(0);
   const total = images.length;
 
@@ -59,7 +64,7 @@ export default function HeroSlideshow({ images, alt }: HeroSlideshowProps) {
             src={src}
             alt={i === index ? alt : ""}
             fill
-            sizes="(max-width: 960px) 80vw, 371px"
+            sizes={sizes}
             className="slideshow__img"
             // A 1ª foto carrega com prioridade (é o LCP da página)
             loading="eager"

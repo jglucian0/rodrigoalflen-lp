@@ -8,6 +8,8 @@ import { LockIcon } from "./ui/Icons";
 /** Seções observadas para marcar o item ativo do menu */
 const SPY_IDS = ["servicos", "portfolio", "sobre", "contato"] as const;
 
+const toHome = (href: string) => (href.startsWith("#") ? `/${href}` : href);
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState<string | null>(null);
@@ -54,7 +56,7 @@ export default function Header() {
   return (
     <header className={`header ${scrolled ? "header--scrolled" : ""}`}>
       <div className="header__inner">
-        <a href="#inicio" className="header__logo" onClick={close}>
+        <a href={toHome("#inicio")} className="header__logo" onClick={close}>
           <Image
             src="/RodrigoAlflenFotografia.webp"
             alt="Rodrigo Alflen Fotografia"
@@ -73,7 +75,7 @@ export default function Header() {
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
-                  href={link.href}
+                  href={toHome(link.href)}
                   className={`nav__link ${active && link.href === `#${active}` ? "is-active" : ""}`}
                   onClick={close}
                 >

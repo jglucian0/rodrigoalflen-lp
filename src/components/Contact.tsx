@@ -31,6 +31,23 @@ const initialState: FormState = {
   captcha: "",
 };
 
+// Função auxiliar para formatar o telefone dinamicamente
+function formatPhone(value: string): string {
+  const digits = value.replace(/\D/g, "").slice(0, 11);
+  if (digits.length <= 2) {
+    return digits.length ? `(${digits}` : "";
+  }
+  if (digits.length <= 6) {
+    return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+  }
+  if (digits.length <= 10) {
+    // Fixo ou celular antigo: (XX) XXXX-XXXX
+    return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
+  }
+  // Celular com 9º dígito: (XX) X XXXX-XXXX
+  return `(${digits.slice(0, 2)}) ${digits.slice(2, 3)} ${digits.slice(3, 7)}-${digits.slice(7)}`;
+}
+
 export default function Contact() {
   const [form, setForm] = useState<FormState>(initialState);
   const [error, setError] = useState<string | null>(null);
@@ -45,7 +62,13 @@ export default function Contact() {
   }, []);
 
   const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+
+    if (name === "whatsapp") {
+      setForm((prev) => ({ ...prev, whatsapp: formatPhone(value) }));
+    } else {
+      setForm((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -168,7 +191,7 @@ export default function Contact() {
                   type="tel"
                   required
                   autoComplete="tel"
-                  placeholder="(16) 98127-5977"
+                  placeholder="(43) 9 9930-9945"
                   value={form.whatsapp}
                   onChange={onChange}
                 />

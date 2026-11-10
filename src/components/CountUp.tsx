@@ -50,15 +50,12 @@ export default function CountUp({ value }: CountUpProps) {
 
     const io = new IntersectionObserver(
       ([entry]) => {
-        cancelAnimationFrame(raf);
-        if (entry.isIntersecting) {
-          // Entrou na tela (ao abrir o site ou ao voltar ao topo): conta do zero
-          setCurrent(0);
-          run();
-        } else {
-          // Saiu da tela: zera, pronto para contar de novo na próxima vez
-          setCurrent(0);
-        }
+        if (!entry.isIntersecting) return;
+
+        // Primeira visualização: conta uma única vez e para de observar.
+        // Depois disso o número fica estático no valor final.
+        io.disconnect();
+        run();
       },
       { threshold: 0.5 },
     );

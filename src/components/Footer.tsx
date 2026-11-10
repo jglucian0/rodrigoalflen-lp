@@ -3,6 +3,7 @@ import Link from "next/link";
 import { services } from "@/lib/services";
 import { SITE_URL, site, whatsappLink } from "@/lib/site";
 import Placeholder from "./ui/Placeholder";
+import { getRandomPortfolioImages } from "@/lib/footer-images";
 import {
   ClockIcon,
   FacebookIcon,
@@ -14,7 +15,9 @@ import {
   YoutubeIcon,
 } from "./ui/Icons";
 
-export default function Footer() {
+export default async function Footer() {
+  const photos = await getRandomPortfolioImages(6);
+
   return (
     <footer className="footer">
       <div className="container footer__top">
@@ -47,16 +50,25 @@ export default function Footer() {
       </div>
 
       <div className="container">
-        <ul className="footer__gallery" aria-hidden>
-          {[0, 1, 2, 3, 4, 5].map((i) => (
-            <li key={i}>
-              <Placeholder
-                alt="Trabalho fotográfico finalizado"
-                ratio="square"
-                tone={i}
-              />
-            </li>
-          ))}
+        <ul className="footer__gallery">
+          {Array.from({ length: 6 }, (_, i) => {
+            const src = photos[i];
+            return (
+              <li key={src ?? `empty-${i}`}>
+                {src ? (
+                  <Image
+                    src={src}
+                    alt="Trabalho fotográfico finalizado"
+                    fill
+                    sizes="(max-width: 560px) 33vw, 160px"
+                  />
+                ) : (
+                  // Se a pasta tiver menos de 6 fotos, completa com placeholder
+                  <Placeholder alt="" ratio="square" tone={i} />
+                )}
+              </li>
+            );
+          })}
         </ul>
       </div>
 
@@ -74,13 +86,22 @@ export default function Footer() {
           <h3>Navegação</h3>
           <ul>
             <li>
-              <a href="#servicos">Serviços</a>
+              <a href="/#servicos">Serviços</a>
             </li>
             <li>
-              <a href="#portfolio">Portfólio</a>
+              <a href="/#portfolio">Portfólio</a>
             </li>
             <li>
-              <a href="#perguntas">Perguntas frequentes</a>
+              <a href="/#perguntas">Perguntas frequentes</a>
+            </li>
+            <li>
+              <a href="/#servicos">Serviços</a>
+            </li>
+            <li>
+              <a href="/#portfolio">Portfólio</a>
+            </li>
+            <li>
+              <a href="/#perguntas">Perguntas frequentes</a>
             </li>
           </ul>
         </nav>
@@ -90,7 +111,9 @@ export default function Footer() {
           <ul>
             {services.map((s) => (
               <li key={s.number}>
-                <a href={s.href}>{s.title}</a>
+                <a href={s.href.startsWith("#") ? `/${s.href}` : s.href}>
+                  {s.title}
+                </a>
               </li>
             ))}
           </ul>
