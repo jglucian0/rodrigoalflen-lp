@@ -1,4 +1,4 @@
-export const SITE_URL = "https://www.rodrigoalflen.com.br";
+export const SITE_URL = "https://rodrigoalflen.vercel.app/";
 
 export const site = {
   name: "Rodrigo Alflen Fotografia",
@@ -11,7 +11,7 @@ export const site = {
   hoursShort: "Seg. a sex., 9h às 18h",
   hoursNote: "Sáb / Dom: registrando histórias de amor",
   cnpj: "25.203.532/0001-57",
-  budgetUrl: "http://localhost:3000/wp",
+  budgetUrl: "https://rodrigoalflen.vercel.app/",
   clientAreaUrl: `${SITE_URL}/cliente`,
   blogUrl: `${SITE_URL}/blog/`,
   formaturasUrl: `${SITE_URL}/formaturas`,
