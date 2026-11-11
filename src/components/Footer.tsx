@@ -171,6 +171,7 @@ export default async function Footer() {
       <div className="container footer__bottom">
         <p>© 2026 Rodrigo Alflen Fotografia · CNPJ 25.203.532/0001-57</p>
         <p>
+          <Link href="/admin">Painel Admin</Link> ·{" "}
           <Link href="/politica-de-privacidade">Privacidade</Link> ·{" "}
           <Link href="/termos-de-uso">Termos</Link>
         </p>

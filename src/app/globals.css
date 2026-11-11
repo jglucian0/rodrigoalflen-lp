@@ -3323,10 +3323,14 @@ em {
   align-items: center;
   gap: 32px;
 }
-.adm__brand {
-  display: flex;
+.adm__brand img {
+  /* display: flex;
   flex-direction: column;
-  line-height: 1.2;
+  line-height: 1.2; */
+  width: 120px;
+  max-width: 260px;
+  height: auto;
+  transition: width 0.3s var(--ease);
 }
 .adm__brand strong {
   font: 500 9px var(--font-body);
