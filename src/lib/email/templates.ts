@@ -1,3 +1,4 @@
+import { greetingName } from "@/lib/names";
 const escapeHtml = (value: string) =>
   value.replace(/[&<>"']/g, (c) =>
     ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!,
@@ -12,8 +13,8 @@ interface ResetEmailInput {
 }
 
 export function passwordResetEmail({ name, login, link, brand }: ResetEmailInput) {
-  const first = name.split(" ")[0];
   const subject = `Redefinir sua senha — ${brand}`;
+  const first = greetingName(name);
 
   const text = [
     `Olá, ${first}!`,

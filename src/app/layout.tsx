@@ -39,9 +39,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       className={`${display.variable} ${sans.variable} ${script.variable}`}
     >
       <body id="topo">
-        <a href="#conteudo" className="skip-link">
+        {/* <a href="#conteudo" className="skip-link">
           Pular para o conteúdo
-        </a>
+        </a> */}
         {children}
         {jsonLd.map((schema, i) => (
           <script

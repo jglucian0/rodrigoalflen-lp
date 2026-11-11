@@ -9,6 +9,7 @@ import { requireClient } from "@/lib/auth/guards";
 import { formatDateBR } from "@/lib/format";
 import { listClientGalleries } from "@/lib/gallery/access";
 import { site, whatsappLink } from "@/lib/site";
+import { greetingName } from "@/lib/names";
 
 export const instant = false;
 
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
 async function Galleries() {
   const user = await requireClient();
   const list = await listClientGalleries(user.id);
-  const firstName = user.name.split(" ")[0];
+  const displayName = greetingName(user.name);
 
   return (
     <>
@@ -28,7 +29,7 @@ async function Galleries() {
         <div className="container">
           <span className="eyebrow">Área do cliente</span>
           <h1 className="section-title">
-            Olá, <em>{firstName}</em>
+            Olá, <em>{displayName}</em>
           </h1>
           <p className="legal-hero__lead">
             {list.length > 0

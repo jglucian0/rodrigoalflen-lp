@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { Credentials } from "@/lib/admin/types";
+import { greetingName } from "@/lib/names";
 
 export default function CredentialsCard({
   credentials,
@@ -23,7 +24,7 @@ export default function CredentialsCard({
   };
 
   const message = () => {
-    const first = credentials.name.split(" ")[0];
+    const first = greetingName(credentials.name);
     return [
       `Olá, ${first}! Seu acesso à área do cliente foi criado.`,
       "",
