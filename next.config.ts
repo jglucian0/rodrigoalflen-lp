@@ -4,7 +4,10 @@ const isProd = process.env.NODE_ENV === "production";
 
 // O envio de fotos do painel vai direto do navegador para o R2
 const r2 = process.env.R2_ACCOUNT_ID
-  ? `https://${process.env.R2_ACCOUNT_ID}.r2.cloudflarestorage.com`
+  ? [
+    `https://${process.env.R2_ACCOUNT_ID}.r2.cloudflarestorage.com`,
+    `https://*.${process.env.R2_ACCOUNT_ID}.r2.cloudflarestorage.com`,
+  ].join(" ")
   : "";
 
 /**
