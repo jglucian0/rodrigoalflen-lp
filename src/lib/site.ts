@@ -12,7 +12,7 @@ export const site = {
   hoursNote: "Sáb / Dom: registrando histórias de amor",
   cnpj: "25.203.532/0001-57",
   budgetUrl: "https://rodrigoalflen.vercel.app/wp",
-  clientAreaUrl: `${SITE_URL}/cliente`,
+  clientAreaUrl: "/cliente",
   blogUrl: `${SITE_URL}/blog/`,
   formaturasUrl: `${SITE_URL}/formaturas`,
   socials: {

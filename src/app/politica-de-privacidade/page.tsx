@@ -52,8 +52,10 @@ const sections: LegalSection[] = [
             Instagram, e-mail ou telefone.
           </li>
           <li>
-            <strong>Área do Cliente:</strong> o login de acesso às suas
-            galerias, fornecido por nós.
+            <strong>Área do Cliente:</strong> login, e-mail de recuperação de
+            senha, registros de acesso (data, horário e endereço IP, usados para
+            segurança), as fotos das suas galerias e os links de visualização
+            que você criar, com a contagem de acessos.
           </li>
           <li>
             <strong>Dados técnicos:</strong> endereço IP, navegador, tipo de
@@ -190,8 +192,16 @@ const sections: LegalSection[] = [
         </p>
         <ul>
           <li>
-            <strong>Hospedagem do site e banco de dados</strong>, onde os
-            cadastros ficam guardados;
+            <strong>Hospedagem do site e banco de dados</strong>, onde ficam o
+            cadastro e os registros de acesso;
+          </li>
+          <li>
+            <strong>Armazenamento das fotos (Cloudflare)</strong>, onde ficam as
+            galerias, em área privada;
+          </li>
+          <li>
+            <strong>Envio de e-mails (Resend)</strong>, usado para mandar o link
+            de recuperação de senha;
           </li>
           <li>
             <strong>Plataforma de galerias online</strong>, usada para entregar

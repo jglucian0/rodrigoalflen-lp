@@ -3,7 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
+    "user:create": "tsx --env-file=.env.local scripts/create-user.ts",
     "optimize:images": "node scripts/optimize-images.mjs",
+    "check:env": "tsx --env-file=.env.local scripts/check-env.ts",
+    "storage:audit": "tsx --env-file=.env.local scripts/audit-storage.ts",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -11,9 +16,16 @@
     "test": "jest"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1166.0",
+    "@aws-sdk/s3-request-presigner": "^3.1166.0",
+    "bcryptjs": "^3.0.3",
+    "drizzle-orm": "^0.45.4",
     "next": "16.4.5",
+    "postgres": "^4.1.0",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "resend": "^6.38.0",
+    "sharp": "^0.35.5"
   },
   "browserslist": [
     "chrome >= 93",
@@ -30,12 +42,14 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv": "^18.0.10",
+    "drizzle-kit": "^0.31.11",
     "eslint": "^9",
     "eslint-config-next": "16.4.5",
     "jest": "^30.5.2",
     "jest-environment-jsdom": "^30.5.2",
-    "sharp": "^0.35.5",
     "tailwindcss": "^4",
+    "tsx": "^4.23.15",
     "typescript": "^5"
   }
 }

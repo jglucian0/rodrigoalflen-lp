@@ -1,11 +1,33 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { processSteps } from "@/lib/site";
 import Reveal from "./ui/Reveal";
 import SectionHeading from "./ui/SectionHeading";
 
-export default function Process() {
+interface Step {
+  numeral: string;
+  title: string;
+  text: string;
+}
+
+interface ProcessProps {
+  eyebrow?: string;
+  title?: ReactNode;
+  steps?: readonly Step[];
+  id?: string;
+}
+
+export default function Process({
+  eyebrow = "Como funciona",
+  title = (
+    <>
+      Da primeira conversa <em>ao álbum</em>
+    </>
+  ),
+  steps = processSteps,
+  id = "como-funciona",
+}: ProcessProps) {
   const listRef = useRef<HTMLOListElement>(null);
   const [active, setActive] = useState(0);
 
@@ -54,20 +76,12 @@ export default function Process() {
   };
 
   return (
-    <section className="section process" aria-labelledby="como-funciona">
+    <section className="section process" aria-labelledby={id}>
       <div className="container">
-        <SectionHeading
-          eyebrow="Como funciona"
-          title={
-            <>
-              Da primeira conversa <em>ao álbum</em>
-            </>
-          }
-          id="como-funciona"
-        />
+        <SectionHeading eyebrow={eyebrow} title={title} id={id} />
 
         <ol ref={listRef} className="process__list">
-          {processSteps.map((step, i) => (
+          {steps.map((step, i) => (
             <li key={step.numeral} data-active={active === i}>
               <Reveal delay={i * 90} className="step">
                 <span className="step__numeral">{step.numeral}</span>
@@ -80,7 +94,7 @@ export default function Process() {
 
         {/* Barra de progresso (aparece só no celular) */}
         <div className="process__nav">
-          {processSteps.map((step, i) => (
+          {steps.map((step, i) => (
             <button
               key={step.numeral}
               type="button"
