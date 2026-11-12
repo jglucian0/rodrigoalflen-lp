@@ -1,10 +1,15 @@
+import { resolveServiceImage } from "@/lib/service-images";
 import { services } from "@/lib/services";
-import Placeholder from "./ui/Placeholder";
-import { ArrowRightIcon } from "./ui/Icons";
 import SectionHeading from "./ui/SectionHeading";
+import ServicesDesktop from "./ServicesDesktop";
 import ServicesPicker from "./ServicesPicker";
 
 export default function Services() {
+  const items = services.map((service) => ({
+    ...service,
+    image: resolveServiceImage(service.slug),
+  }));
+
   return (
     <section id="servicos" className="section services">
       <div className="container">
@@ -18,27 +23,8 @@ export default function Services() {
           description="Uma experiência personalizada, adaptada a cada cliente, para criar registros únicos e autênticos."
         />
 
-        {/* Desktop: lista + foto em arco */}
-        <div className="services__grid">
-          <ol className="services__list">
-            {services.map((service) => (
-              <li key={service.number}>
-                <a href={service.href} className="service">
-                  <span className="service__number">{service.number}</span>
-                  <span className="service__title">{service.title}</span>
-                  <span className="service__desc">{service.description}</span>
-                  <span className="service__arrow">
-                    <ArrowRightIcon width={12} height={12} />
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ol>
-
-          <div className="arch services__arch" aria-hidden>
-            <Placeholder alt="" ratio="portrait" tone={2} />
-          </div>
-        </div>
+        {/* Desktop: lista + foto que troca no hover */}
+        <ServicesDesktop items={items} />
 
         {/* Celular/tablet: abas + cartão (o CSS alterna entre os dois) */}
         <ServicesPicker services={services} />

@@ -18,6 +18,7 @@ async function main() {
     processDirectory('public/portfolio'),
     processDirectory('public/portfolio/destaque'),
     processDirectory('public/depoimento'),
+    processDirectory('public/servicos'),
     processIsolatedFiles('public', TARGET_ISOLATED_FILES)
   ];
 

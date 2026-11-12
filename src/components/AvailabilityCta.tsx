@@ -3,7 +3,11 @@ import { WHATSAPP_AVAILABILITY_MESSAGE, whatsappLink } from "@/lib/site";
 import Reveal from "./ui/Reveal";
 import { WhatsappIcon } from "./ui/Icons";
 
-export default function AvailabilityCta() {
+export default function AvailabilityCta({
+  message = WHATSAPP_AVAILABILITY_MESSAGE,
+}: {
+  message?: string;
+}) {
   return (
     <section
       className="cta"
@@ -38,7 +42,7 @@ export default function AvailabilityCta() {
             disponibilidade e garanta o registro perfeito desse momento.
           </p>
           <a
-            href={whatsappLink(WHATSAPP_AVAILABILITY_MESSAGE)}
+            href={whatsappLink(message)}
             className="btn btn--cream"
             target="_blank"
             rel="noopener noreferrer"

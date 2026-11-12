@@ -94,7 +94,8 @@ export default function ServicesPicker({ services }: { services: Service[] }) {
           <h3 className="svc-card__title">{current.title}</h3>
           <p className="svc-card__desc">{current.description}</p>
           <a href={current.href} className="btn btn--dark">
-            Saber mais <ArrowRightIcon />
+            {current.href.includes("#") ? "Pedir orçamento" : "Saber mais"}{" "}
+            <ArrowRightIcon />
           </a>
         </div>
 

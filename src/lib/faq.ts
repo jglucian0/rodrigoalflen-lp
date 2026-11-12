@@ -14,7 +14,7 @@ export const faqItems: FaqItem[] = [
   },
   {
     question: "Quais tipos de evento e ensaio vocês fotografam?",
-    answer: "Casamentos, casamento civil, pré-wedding, festas de 15 anos, formaturas, ensaios em estúdio, ensaio gestante, fotografia infantil e eventos corporativos.",
+    answer: "Casamentos, casamento civil, pré-wedding, festas de 15 anos, formaturas, ensaios em estúdio, ensaio gestante e fotografia infantil.",
   },
   {
     question: "Há quanto tempo vocês trabalham com fotografia?",

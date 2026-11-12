@@ -38,7 +38,7 @@ export const WHATSAPP_FAQ_MESSAGE =
 export const navLinks = [
   { label: "Serviços", href: "#servicos" },
   { label: "Portfólio", href: "#portfolio" },
-  { label: "Formaturas", href: site.formaturasUrl },
+  //{ label: "Formaturas", href: site.formaturasUrl },
   { label: "Sobre", href: "#sobre" },
   //{ label: "Blog", href: site.blogUrl },
   { label: "Contato", href: "#contato" },

@@ -110,13 +110,13 @@ export default async function LinksPage() {
               <LinkButton href="/" index={9} icon={<HomeIcon />}>
                 Site Oficial
               </LinkButton>
-              <LinkButton
+              {/* <LinkButton
                 href={site.formaturasUrl}
                 index={10}
                 icon={<GraduationIcon />}
               >
                 Formaturas
-              </LinkButton>
+              </LinkButton> */}
             </div>
           </section>
 
